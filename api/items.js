@@ -3,10 +3,8 @@
 // อ่าน Google Sheet ที่ Publish as CSV แล้วส่ง JSON กลับ
 
 export default async function handler(req, res) {
-  const url = process.env.SHEET_CSV_URL
-  if (!url) {
-    return res.status(500).json({ error: 'SHEET_CSV_URL not set in environment variables' })
-  }
+const url = process.env.SHEET_CSV_URL 
+  || 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQPb7YnGTZKA3qPlDilQDvNYdoNZCKdxlLO7mtSUsstWxMZcmAx-31R1hhHEB5flNFTAdec2zR9WlJG/pub?gid=0&single=true&output=csv'
 
   try {
     const response = await fetch(url)
