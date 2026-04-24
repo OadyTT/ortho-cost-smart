@@ -49,6 +49,19 @@ export default function App() {
   const autoTotal    = selected.reduce((s, r) => s + excess(r), 0)
   const displayTotal = editedTotal ?? autoTotal
 
+  async function handlePrint() {
+    try {
+      await fetch('/api/save', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ patient, selected, total: displayTotal }),
+      })
+    } catch (e) {
+      console.error('Save failed:', e)
+    }
+    window.print()
+  }
+
   // ── Handlers ─────────────────────────────────────────────────────────
   function setPat(field, val) {
     setPatient(p => ({ ...p, [field]: val }))
@@ -195,7 +208,7 @@ export default function App() {
               </div>
             </div>
             <p className="hint">* แก้ไขยอดรวมได้ก่อนพิมพ์ (เผื่อสำรองค่าใช้จ่าย)</p>
-            <button className="print-btn" onClick={() => window.print()}>
+            <button className="print-btn" onClick={handlePrint}>
               🖨️ พิมพ์ใบยินยอม A4
             </button>
           </section>
