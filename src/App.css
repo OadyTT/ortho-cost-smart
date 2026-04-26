@@ -186,3 +186,28 @@ td.bold  { font-weight: 700; }
 .pf-sigs { display: grid; grid-template-columns: 1fr 1fr; gap: 14pt 20pt; }
 .pf-sig  { font-size: 10pt; line-height: 2; }
 .pf-sig .sub { font-size: 9pt; color: #333; }
+
+/* ── Header Logo ──────────────────────────────────── */
+.header-logo {
+  width: 72px; height: 72px; object-fit: contain;
+  border-radius: 18px; margin-bottom: 8px;
+  box-shadow: 0 4px 16px rgba(29,78,216,.2);
+}
+
+/* ── History header row ───────────────────────────── */
+.hist-header { display: flex; align-items: center; justify-content: space-between; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; margin-bottom: 16px; }
+.hist-header h2 { border: none; padding: 0; margin: 0; }
+.refresh-btn { background: #f1f5f9; border: 1px solid #cbd5e1; border-radius: 8px; padding: 6px 14px; font-size: 13px; cursor: pointer; color: #334155; }
+.refresh-btn:hover { background: #e2e8f0; }
+
+/* ── Delete button in history ─────────────────────── */
+.del-hist {
+  background: none; border: none; font-size: 16px; cursor: pointer;
+  padding: 2px 6px; border-radius: 6px; transition: background .15s;
+}
+.del-hist:hover:not(:disabled) { background: #fee2e2; }
+.del-hist:disabled { opacity: .4; cursor: not-allowed; }
+
+/* ── Sortable header ──────────────────────────────── */
+thead th { transition: color .15s; }
+thead th:hover { color: #1d4ed8; }
