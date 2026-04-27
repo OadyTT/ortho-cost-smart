@@ -36,7 +36,7 @@ header p  { font-size: 13px; color: #64748b; margin-top: 4px; }
 
 /* ── Header Logo ──────────────────────────────────── */
 .header-logo {
-  width: 96px; height: 96px; object-fit: contain;
+  width: 96px; height: 96px; object-fit: cover;
   border-radius: 22px; margin-bottom: 10px;
   box-shadow: 0 6px 20px rgba(29,78,216,.25);
 }
